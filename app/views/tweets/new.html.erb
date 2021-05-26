@@ -1,0 +1,78 @@
+<div class="items-sell-contents">
+  <header class="items-sell-header">
+  </header>
+
+ <div class="items-sell-main">
+    <h2 class="items-sell-title">あなたが体験した情報を入力</h2>
+     <%= form_with model:@tweet, local: true do |f| %>
+
+     <%#=render 'shared/error_messages', model: f.object %>
+ 
+     <div class="img-upload">
+        <div class="weight-bold-text">
+        タイトル
+         <span class="indispensable">必須</span>
+        </div>
+          <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"例）笑顔で騙されかけました", maxlength:"40" %>
+        <div class="weight-bold-text">
+            危険度
+           <span class="indispensable">必須</span>
+       </div>
+        <%= f.collection_select(:risk_id, Risk.all, :id, :name, {}, {class:"select-box", id:"item-risk"}) %>
+      </div>
+     
+     <div class="items-detail">
+      <div class="weight-bold-text">体験した詳細</div>
+        <div class="form">
+          <div class="weight-bold-text">
+            国
+           <span class="indispensable">必須</span>
+          </div>
+            <%= f.collection_select(:country_id, Country.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+          <div class="weight-bold-text">
+             地域
+          </div>
+              <%= f.text_area :city, class:"items-text", id:"item-info", placeholder:"例）アユタヤ付近"%>
+          <div class="weight-bold-text">
+             具体的な場所
+             <span class="indispensable">必須</span>
+         </div>
+              <%= f.text_area :block, class:"items-text", id:"item-info", placeholder:"例）〇〇方面から△△方面に向かう途中の道（近くには□□があるところ！）", maxlength:"3000"%>
+         <div class="weight-bold-text">
+            その体験した年
+            <span class="indispensable">必須</span>
+         </div>
+            <%= f.text_area :year, class:"items-text", id:"item-name", placeholder:"例)2021(半角)" %>
+         <div class="weight-bold-text">
+            その体験した月
+             <span class="indispensable">必須</span>
+         </div>
+            <%= f.text_area :month, class:"items-text", id:"item-name", placeholder:"例)9(半角)" %>
+
+         <div class="weight-bold-text">
+            その体験した時間帯
+            <span class="indispensable">必須</span>
+         </div>
+            <%= f.collection_select(:day_id, Day.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+         <div class="weight-bold-text">
+            その体験した時間
+            <span class="indispensable">必須</span>
+         </div>
+            <%= f.text_area :time, class:"items-text", id:"item-name", placeholder:"例)21:00(半角)" %>
+         <div class="weight-bold-text">
+          内容
+          <span class="indispensable">必須</span>
+         </div>
+         <%= f.text_area :detail, class:"items-text", id:"item-name", placeholder:"例)＋＋が有名なレストランAに行こうとしていたところ、トゥクトゥクのお兄さんが話しかけてきた。「どこにくの？」と日本語で聞かれたので「レストランAに行きます」と答えたところ、「今日、レストランAはお休みだから水上マーケットに行こう」と言ってきた。私は怪しいと思いついて行かなかった。そしてレストランAに行ってみると普通に営業していた。" %>
+        </div>
+      </div>
+      <div class="sell-btn-contents">
+         <%= f.submit "投稿する" ,class:"sell-btn" %>
+         <%=link_to 'もどる', root_path, class:"back-btn" %>
+      </div>
+       <% end %>
+   </div>
+ 
+     
+ 
+</div>

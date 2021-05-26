@@ -1,0 +1,36 @@
+<%= render "shared/header" %>
+<div class="main">
+こんにちは
+</div>
+   <%= link_to( new_tweet_path, class: 'purchase-btn') do %>
+  <span class='purchase-btn-text'>投稿する</span>
+   <% end %>
+
+<% if @tweet.length > 0 %>
+      
+
+        <% @tweet.each do |tweet| %>
+      <li class='list'>
+
+        <%#= link_to  tweet_path(tweet.id) do %>
+
+ 
+        <div class='item-img-content'>
+          <%= tweet.title %>
+        </div>
+
+        <div class='item-info'>
+          <th class="detail-item">危険度</th>
+          <td class="detail-value"><%= tweet.risk.name %></td>
+          <th class="detail-item">国</th>
+          <td class="detail-value"><%= tweet.country.name %></td>
+          <div class="detail-item">内容</div>
+          <td class="detail-value"><%= tweet.detail %></td>
+          <div class="detail-item">投稿者</div>
+          <td class="detail-value"><%= tweet.user.nickname %></td>
+        </div>
+        <% end %>
+    
+     
+
+<%end%>
