@@ -1,0 +1,69 @@
+<div class="item-show">
+ <div class="item-box">
+    <h2 class="name">
+      <%= @tweet.title %>
+    </h2>
+    <div class="item-price-box">
+      <div class="item-price">
+       <span>危険度</span>
+        <%= @tweet.risk.name %>
+      </div>
+      <div class="item-postage">
+        <span>国名</span>
+        <%= @tweet.country.name %>
+      </div>
+       <div class="item-postage">
+        <span>地域</span>
+        <%= @tweet.city %>
+      </div>
+       <div class="item-postage">
+        <span>具体的な場所</span>
+        <%= @tweet.block %>
+      </div>
+       <div class="item-postage">
+        <span>年</span>
+        <%= @tweet.year %>
+      </div>
+       <div class="item-postage">
+        <span>月</span>
+        <%= @tweet.month %>
+      </div>
+      <div class="item-postage">
+        <span>時間帯</span>
+        <%= @tweet.day.name %>
+      </div>
+      <div class="item-postage">
+        <span>時間</span>
+        <%= @tweet.time %>
+      </div>
+      <div class="item-postage">
+        <span>内容</span>
+        <%= @tweet.detail %>
+       </div>
+     </div>
+     <%if user_signed_in?%>
+        <%if current_user.id == @tweet.user_id %>
+          <%= link_to "投稿の編集", edit_tweet_path(@tweet.id), method: :get, class: "item-red-btn" %>
+          <p class="or-text">or</p>
+          <%= link_to "削除",  tweet_path(@tweet.id), method: :delete, class:"item-destroy" %>
+        <%end%>
+         <%= form_with(model: [@tweet, @comment], local: true) do |form| %>
+        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= form.submit "SEND" %>
+         <%end%>
+      <%end%>
+
+       <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% @comments.each do |comment| %>
+        <p>
+          <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+          <%= comment.text %>
+        </p>
+      <% end %>
+    </div>
+    
+   </div>
+ </div>
+</div>
+ 

@@ -22,7 +22,7 @@
 | year               | string     | null: false                    | 年
 | month              | string     | null: false                    | 月
 | day_id             | integer    | null: false                    | 朝昼晩　アクティブハッシュ
-| time               | string     |                                | 時間
+| time               | text       |                                | 時間
 | detail             | text       | null: false                    | 内容説明
 | user_id            | references | null: false, foreign_key: true |
 

@@ -9,9 +9,9 @@ class CreateTweets < ActiveRecord::Migration[6.0]
       t.string  :year,         null: false
       t.string  :month,        null: false
       t.integer :day_id,       null: false
-      t.string  :time
+      t.text :time     
       t.text    :detail,       null: false
-      t.references :user,      ull: false, foreign_key: true
+      t.references :user,      null: false, foreign_key: true
 
 
 

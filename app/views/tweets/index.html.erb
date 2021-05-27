@@ -2,17 +2,20 @@
 <div class="main">
 こんにちは
 </div>
+ <%if user_signed_in?%>
    <%= link_to( new_tweet_path, class: 'purchase-btn') do %>
   <span class='purchase-btn-text'>投稿する</span>
    <% end %>
+  <%end%>
 
 <% if @tweet.length > 0 %>
       
 
         <% @tweet.each do |tweet| %>
       <li class='list'>
+         
 
-        <%#= link_to  tweet_path(tweet.id) do %>
+        <%= link_to  tweet_path(tweet.id) do %>
 
  
         <div class='item-img-content'>
@@ -29,8 +32,10 @@
           <div class="detail-item">投稿者</div>
           <td class="detail-value"><%= tweet.user.nickname %></td>
         </div>
-        <% end %>
-    
+      <% end %>
+       </li>
+
+    <% end %>
      
 
 <%end%>
