@@ -63,5 +63,3 @@ end
 gem 'devise'
 gem 'pry-rails'
 gem 'active_hash'
-gem 'bootstrap', '~> 5.0.0.alpha1'
-gem 'jquery-rails'
