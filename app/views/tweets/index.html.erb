@@ -1,41 +1,75 @@
-<%= render "shared/header" %>
-<div class="main">
-こんにちは
-</div>
- <%if user_signed_in?%>
-   <%= link_to( new_tweet_path, class: 'purchase-btn') do %>
-  <span class='purchase-btn-text'>投稿する</span>
-   <% end %>
-  <%end%>
 
+<div class="container">
+
+  
 <% if @tweet.length > 0 %>
-      
-
-        <% @tweet.each do |tweet| %>
-      <li class='list'>
-         
-
-        <%= link_to  tweet_path(tweet.id) do %>
-
+   
+    <% @tweet.each do |tweet| %>
+    
  
+      <li class='list'>
         <div class='item-img-content'>
-          <%= tweet.title %>
+        <a> <%= link_to  tweet_path(tweet.id) do %> <%= tweet.title %></a><%end%>
         </div>
-
-        <div class='item-info'>
+       <table class="detail-table">
+         <tbody>
+          <div class='item-info'>
+         <tr>
           <th class="detail-item">危険度</th>
-          <td class="detail-value"><%= tweet.risk.name %></td>
+          <td class="detail-value"><%= tweet.risk.name %></td> 
+         </tr>
+         <tr> 
           <th class="detail-item">国</th>
           <td class="detail-value"><%= tweet.country.name %></td>
-          <div class="detail-item">内容</div>
-          <td class="detail-value"><%= tweet.detail %></td>
-          <div class="detail-item">投稿者</div>
+         </tr>
+           <th class="detail-item">内容</div>
+           <td class="detail-value"><%= tweet.detail %></td>
+         <tr>
+          <th class="detail-item">投稿者</div>
           <td class="detail-value"><%= tweet.user.nickname %></td>
-        </div>
-      <% end %>
-       </li>
-
+         </tr>
+         </div>
+        </tbody>
+       </table>
+        
+      </li>
+        
     <% end %>
-        <button type="button" class="btn btn-outline-secondary">ボタン</button>
+<h1> 東南アジア</h1>
+
+<% @tweets.each do |tweet| %>
+    
+ できたーーーー
+
+      <li class='list'>
+        <div class='item-img-content'>
+        <a> <%= link_to  tweet_path(tweet.id) do %> <%= tweet.title %></a><%end%>
+        </div>
+       <table class="detail-table">
+         <tbody>
+          <div class='item-info'>
+         <tr>
+          <th class="detail-item">危険度</th>
+          <td class="detail-value"><%= tweet.risk.name %></td> 
+         </tr>
+         <tr> 
+          <th class="detail-item">国</th>
+          <td class="detail-value"><%= tweet.country.name %></td>
+         </tr>
+           <th class="detail-item">内容</div>
+           <td class="detail-value"><%= tweet.detail %></td>
+         <tr>
+          <th class="detail-item">投稿者</div>
+          <td class="detail-value"><%= tweet.user.nickname %></td>
+         </tr>
+         </div>
+        </tbody>
+       </table>
+        
+      </li>
+        
+    <% end %>
 
 <%end%>
+
+</div>

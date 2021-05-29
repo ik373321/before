@@ -2,6 +2,7 @@ class TweetsController < ApplicationController
   before_action :authenticate_user!,  except: [:index, :show]
   def index
     @tweet = Tweet.order('created_at DESC')
+    @tweets = Tweet.where(country_id:"2",country_id:"3")
   end
 
   def new
@@ -41,6 +42,9 @@ class TweetsController < ApplicationController
     @tweet.destroy
     redirect_to root_path
   end
+
+
+
   private
 
   def tweets_params
