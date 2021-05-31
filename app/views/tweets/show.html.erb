@@ -1,3 +1,4 @@
+<div class="container">
 <div class="item-show">
  <div class="item-box">
     <h2 class="name">
@@ -43,17 +44,18 @@
      </div>
      <%if user_signed_in?%>
         <%if current_user.id == @tweet.user_id %>
-          <%= link_to "投稿の編集", edit_tweet_path(@tweet.id), method: :get, class: "item-red-btn" %>
-          <p class="or-text">or</p>
-          <%= link_to "削除",  tweet_path(@tweet.id), method: :delete, class:"item-destroy" %>
+          <%= link_to "投稿の編集", edit_tweet_path(@tweet.id), method: :get, class: "btn btn-outline-primary" %>
+        
+          <%= link_to "削除",  tweet_path(@tweet.id), method: :delete, class:"btn btn-outline-danger" %>
         <%end%>
+    
          <%= form_with(model: [@tweet, @comment], local: true) do |form| %>
-        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= form.text_area :text, placeholder: "コメントする", rows: "3" %>
         <%= form.submit "SEND" %>
          <%end%>
       <%end%>
 
-       <div class="comments">
+     <div class="comments">
       <h4>＜コメント一覧＞</h4>
       <% @comments.each do |comment| %>
         <p>
@@ -66,4 +68,4 @@
    </div>
  </div>
 </div>
- 
+ </div>

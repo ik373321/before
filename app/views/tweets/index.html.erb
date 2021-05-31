@@ -1,75 +1,10 @@
 
 <div class="container">
-
-  
-<% if @tweet.length > 0 %>
-   
-    <% @tweet.each do |tweet| %>
-    
- 
-      <li class='list'>
-        <div class='item-img-content'>
-        <a> <%= link_to  tweet_path(tweet.id) do %> <%= tweet.title %></a><%end%>
-        </div>
-       <table class="detail-table">
-         <tbody>
-          <div class='item-info'>
-         <tr>
-          <th class="detail-item">危険度</th>
-          <td class="detail-value"><%= tweet.risk.name %></td> 
-         </tr>
-         <tr> 
-          <th class="detail-item">国</th>
-          <td class="detail-value"><%= tweet.country.name %></td>
-         </tr>
-           <th class="detail-item">内容</div>
-           <td class="detail-value"><%= tweet.detail %></td>
-         <tr>
-          <th class="detail-item">投稿者</div>
-          <td class="detail-value"><%= tweet.user.nickname %></td>
-         </tr>
-         </div>
-        </tbody>
-       </table>
-        
-      </li>
-        
-    <% end %>
-<h1> 東南アジア</h1>
-
-<% @tweets.each do |tweet| %>
-    
- できたーーーー
-
-      <li class='list'>
-        <div class='item-img-content'>
-        <a> <%= link_to  tweet_path(tweet.id) do %> <%= tweet.title %></a><%end%>
-        </div>
-       <table class="detail-table">
-         <tbody>
-          <div class='item-info'>
-         <tr>
-          <th class="detail-item">危険度</th>
-          <td class="detail-value"><%= tweet.risk.name %></td> 
-         </tr>
-         <tr> 
-          <th class="detail-item">国</th>
-          <td class="detail-value"><%= tweet.country.name %></td>
-         </tr>
-           <th class="detail-item">内容</div>
-           <td class="detail-value"><%= tweet.detail %></td>
-         <tr>
-          <th class="detail-item">投稿者</div>
-          <td class="detail-value"><%= tweet.user.nickname %></td>
-         </tr>
-         </div>
-        </tbody>
-       </table>
-        
-      </li>
-        
-    <% end %>
-
-<%end%>
-
+ <% if @tweet.length > 0 %>
+   <h1>全世界</h1>
+ <%= render "tweets/all" %>
+  <div>
+   <%= paginate @tweet %>
+  </div>
+  <%end%>
 </div>
