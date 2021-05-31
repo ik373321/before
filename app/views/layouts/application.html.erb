@@ -52,8 +52,19 @@
             </div>
         </div>
          <%end%>
+    
+
      </header>
    </div>
+  <nav class="container d-flex flex-column flex-md-row justify-content-between">
+   <%= link_to '全世界', root_path%>
+   <%= link_to "アジア", asia_tweets_path%>
+   <%= link_to "アフリカ", africa_tweets_path%>
+   <%= link_to "ヨーロッパ", europe_tweets_path%>
+   <%= link_to "北アメリカ", namerica_tweets_path%>
+   <%= link_to "南アメリカ", samerica_tweets_path%>
+   <%= link_to "オセアニア", oceania_tweets_path%>
+     </nav>
     <%= yield %>
   </body>
 </html>

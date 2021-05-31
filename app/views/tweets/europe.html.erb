@@ -1,13 +1,13 @@
-<% if @tweet.length > 0 %>
-    <% @tweet.each do |tweet| %>
-      <li class='list'>
+<div class="container">
+  <h1>ヨーロッパ</h1>
+   <% @europe.each do |tweet| %>
+   <li class='list'>
         <div class='item-img-content'>
-        <a> <%= link_to  tweet_path(tweet.id) do %> <%= tweet.title %></a>
+        <a> <%= link_to  tweet_path(tweet.id) do %> <%= tweet.title %></a><%end%>
         </div>
        <table class="detail-table">
          <tbody>
           <div class='item-info'>
-
          <tr>
           <th class="detail-item">危険度</th>
           <td class="detail-value"><%= tweet.risk.name %></td> 
@@ -22,9 +22,9 @@
           <th class="detail-item">投稿者</div>
           <td class="detail-value"><%= tweet.user.nickname %></td>
          </tr>
-       </div>
-      </tbody>
-    </table>
-      <% end %>
-       </li>
-    <% end %>
+         </div>
+        </tbody>
+       </table>
+     </li> 
+   <%end%>
+</div>
