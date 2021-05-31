@@ -5,12 +5,13 @@ class TweetsController < ApplicationController
   end
 
   def new
-    @tweet = Tweet.new
+    @tweet = TweetsTag.new
+    #binding.pry
+
   end
   
   def create
-    # binding.pry
-    @tweet = Tweet.new(tweets_params)
+    @tweet = TweetsTag.new(tweets_params)
     if @tweet.save
       redirect_to root_path
     else
@@ -104,6 +105,6 @@ class TweetsController < ApplicationController
   private
 
   def tweets_params
-    params.require(:tweet).permit(:title, :risk_id,:country_id,:city,:block,:year,:month,:day_id,:time,:detail).merge(user_id: current_user.id)
+    params.require(:tweets_tag).permit(:title, :risk_id,:country_id,:city,:block,:year,:month,:day_id,:time,:detail,:name).merge(user_id: current_user.id)
   end
 end
