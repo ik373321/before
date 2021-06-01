@@ -1,3 +1,4 @@
+<div class="container">
 <div class="items-sell-contents">
   <header class="items-sell-header">
   </header>
@@ -21,7 +22,7 @@
         <%= f.collection_select(:risk_id, Risk.all, :id, :name, {}, {class:"select-box", id:"item-risk"}) %>
       </div>
      
-     <div class="items-detail">
+     
       <div class="weight-bold-text">体験した詳細</div>
         <div class="form">
           <div class="weight-bold-text">
@@ -65,12 +66,15 @@
          </div>
          <%= f.text_area :detail, class:"items-text", id:"item-name", placeholder:"例)＋＋が有名なレストランAに行こうとしていたところ、トゥクトゥクのお兄さんが話しかけてきた。「どこにくの？」と日本語で聞かれたので「レストランAに行きます」と答えたところ、「今日、レストランAはお休みだから水上マーケットに行こう」と言ってきた。私は怪しいと思いついて行かなかった。そしてレストランAに行ってみると普通に営業していた。" %>
    
-
-         <div class="weight-bold-text">
+        <div class="weight-bold-text">
           タグ
-          <span class="indispensable">必須</span>
          </div>
-         <%= f.text_area :name, class:"tag-field", id:"tag-field" %>
+         <div class="tag-field", id='tag-field'>
+            <%#= f.label :name, "タグ" %>
+            <%= f.text_field :name, class:"input-tag" %>
+       </div>
+       <div id="search-result">
+       </div>
        
       
       <div class="sell-btn-contents">
@@ -79,7 +83,5 @@
       </div>
        <% end %>
    </div>
- 
-     
- 
+</div>
 </div>
