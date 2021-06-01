@@ -1,10 +1,11 @@
+<div class="container">
 <div class="items-sell-contents">
   <header class="items-sell-header">
   </header>
 
  <div class="items-sell-main">
     <h2 class="items-sell-title">あなたが体験した情報を入力</h2>
-     <%= form_with model:@tweet, local: true do |f| %>
+     <%= form_with model:@tweet,  url: tweets_path, html: { method: :post },local: true do |f| %>
 
      <%#=render 'shared/error_messages', model: f.object %>
  <%= render 'shared/error_messages', model: f.object %>
@@ -21,7 +22,7 @@
         <%= f.collection_select(:risk_id, Risk.all, :id, :name, {}, {class:"select-box", id:"item-risk"}) %>
       </div>
      
-     <div class="items-detail">
+     
       <div class="weight-bold-text">体験した詳細</div>
         <div class="form">
           <div class="weight-bold-text">
@@ -64,15 +65,23 @@
           <span class="indispensable">必須</span>
          </div>
          <%= f.text_area :detail, class:"items-text", id:"item-name", placeholder:"例)＋＋が有名なレストランAに行こうとしていたところ、トゥクトゥクのお兄さんが話しかけてきた。「どこにくの？」と日本語で聞かれたので「レストランAに行きます」と答えたところ、「今日、レストランAはお休みだから水上マーケットに行こう」と言ってきた。私は怪しいと思いついて行かなかった。そしてレストランAに行ってみると普通に営業していた。" %>
-        </div>
-      </div>
+   
+        <div class="weight-bold-text">
+          タグ
+         </div>
+         <div class="tag-field", id='tag-field'>
+            <%#= f.label :name, "タグ" %>
+            <%= f.text_field :name, class:"input-tag" %>
+       </div>
+       <div id="search-result">
+       </div>
+       
+      
       <div class="sell-btn-contents">
          <%= f.submit "投稿する" ,class:"sell-btn" %>
          <%=link_to 'もどる', root_path, class:"back-btn" %>
       </div>
        <% end %>
    </div>
- 
-     
- 
+</div>
 </div>

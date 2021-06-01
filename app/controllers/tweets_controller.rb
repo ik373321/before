@@ -5,16 +5,18 @@ class TweetsController < ApplicationController
   end
 
   def new
-    @tweet = Tweet.new
+    @tweet = TweetsTag.new
+    #binding.pry
+
   end
   
   def create
-    # binding.pry
-    @tweet = Tweet.new(tweets_params)
-    if @tweet.save
+    @tweet = TweetsTag.new(tweets_params)
+    if @tweet.valid?
+      @tweet.save
       redirect_to root_path
     else
-      #binding.pry
+     # binding.pry
       render :new
     end
   end
@@ -51,7 +53,7 @@ class TweetsController < ApplicationController
     .or(Tweet.where(country_id:"97")).or(Tweet.where(country_id:"99")).or(Tweet.where(country_id:"104")).or(Tweet.where(country_id:"123")).or(Tweet.where(country_id:"125"))
     .or(Tweet.where(country_id:"127")).or(Tweet.where(country_id:"129")).or(Tweet.where(country_id:"139")).or(Tweet.where(country_id:"140")).or(Tweet.where(country_id:"142"))
     .or(Tweet.where(country_id:"144")).or(Tweet.where(country_id:"151")).or(Tweet.where(country_id:"149")).or(Tweet.where(country_id:"169")).or(Tweet.where(country_id:"173"))
-    .or(Tweet.where(country_id:"182")).or(Tweet.where(country_id:"184")).or(Tweet.where(country_id:"185")).page(params[:page]).per(25)
+    .or(Tweet.where(country_id:"182")).or(Tweet.where(country_id:"184")).or(Tweet.where(country_id:"185")).order('created_at DESC').page(params[:page]).per(25)
   end
 
  def africa
@@ -65,7 +67,7 @@ class TweetsController < ApplicationController
   .or(Tweet.where(country_id:"150")).or(Tweet.where(country_id:"152")).or(Tweet.where(country_id:"160")).or(Tweet.where(country_id:"165")).or(Tweet.where(country_id:"166"))
   .or(Tweet.where(country_id:"167")).or(Tweet.where(country_id:"171")).or(Tweet.where(country_id:"172")).or(Tweet.where(country_id:"175")).or(Tweet.where(country_id:"176"))
   .or(Tweet.where(country_id:"177")).or(Tweet.where(country_id:"181")).or(Tweet.where(country_id:"188")).or(Tweet.where(country_id:"190")).or(Tweet.where(country_id:"193"))
-  .or(Tweet.where(country_id:"194")).page(params[:page]).per(25)
+  .or(Tweet.where(country_id:"194")).order('created_at DESC').page(params[:page]).per(25)
  end
 
  def namerica
@@ -73,13 +75,13 @@ class TweetsController < ApplicationController
   .or(Tweet.where(country_id:"59")).or(Tweet.where(country_id:"63")).or(Tweet.where(country_id:"75")).or(Tweet.where(country_id:"92")).or(Tweet.where(country_id:"93"))
   .or(Tweet.where(country_id:"94")).or(Tweet.where(country_id:"111")).or(Tweet.where(country_id:"112")).or(Tweet.where(country_id:"113")).or(Tweet.where(country_id:"121"))
   .or(Tweet.where(country_id:"128")).or(Tweet.where(country_id:"131")).or(Tweet.where(country_id:"133")).or(Tweet.where(country_id:"137")).or(Tweet.where(country_id:"155"))
-  .or(Tweet.where(country_id:"163")).or(Tweet.where(country_id:"174")).page(params[:page]).per(25)
+  .or(Tweet.where(country_id:"163")).or(Tweet.where(country_id:"174")).order('created_at DESC').page(params[:page]).per(25)
  end
 
  def samerica
   @samerica =  Tweet.where(country_id:"9").or(Tweet.where(country_id:"25")).or(Tweet.where(country_id:"26")).or(Tweet.where(country_id:"39")).or(Tweet.where(country_id:"65"))
   .or(Tweet.where(country_id:"84")).or(Tweet.where(country_id:"106")).or(Tweet.where(country_id:"136")).or(Tweet.where(country_id:"145")).or(Tweet.where(country_id:"153"))
-  .or(Tweet.where(country_id:"156")).or(Tweet.where(country_id:"161"))  .page(params[:page]).per(25)
+  .or(Tweet.where(country_id:"156")).or(Tweet.where(country_id:"161")).order('created_at DESC').page(params[:page]).per(25)
  end
  def europe
   @europe = Tweet.where(country_id:"2").or(Tweet.where(country_id:"3")).or(Tweet.where(country_id:"10")).or(Tweet.where(country_id:"14")).or(Tweet.where(country_id:"17"))
@@ -91,19 +93,23 @@ class TweetsController < ApplicationController
   .or(Tweet.where(country_id:"157")).or(Tweet.where(country_id:"158")).or(Tweet.where(country_id:"159")).or(Tweet.where(country_id:"162")).or(Tweet.where(country_id:"47"))
   .or(Tweet.where(country_id:"168")).or(Tweet.where(country_id:"178")).or(Tweet.where(country_id:"180")).or(Tweet.where(country_id:"183")).or(Tweet.where(country_id:"186"))
   .or(Tweet.where(country_id:"189")).or(Tweet.where(country_id:"187")).or(Tweet.where(country_id:"191")).or(Tweet.where(country_id:"192")).or(Tweet.where(country_id:"196"))
-  .page(params[:page]).per(25)
+  .order('created_at DESC').page(params[:page]).per(25)
 
  end
  def oceania
   @oceania = Tweet.where(country_id:"33").or(Tweet.where(country_id:"53")).or(Tweet.where(country_id:"57")).or(Tweet.where(country_id:"69")).or(Tweet.where(country_id:"120"))
   .or(Tweet.where(country_id:"124")).or(Tweet.where(country_id:"132")).or(Tweet.where(country_id:"134")).or(Tweet.where(country_id:"135")).or(Tweet.where(country_id:"141"))
-  .or(Tweet.where(country_id:"164")).or(Tweet.where(country_id:"170"))  .page(params[:page]).per(25)
+  .or(Tweet.where(country_id:"164")).or(Tweet.where(country_id:"170")).order('created_at DESC')  .page(params[:page]).per(25)
  end
 
-
+ def search
+   return nil if params[:keyword] == ""
+   tag = Tag.where(['name LIKE ?', "%#{params[:keyword]}%"] )
+   render json:{ keyword: tag }
+ end
   private
 
   def tweets_params
-    params.require(:tweet).permit(:title, :risk_id,:country_id,:city,:block,:year,:month,:day_id,:time,:detail).merge(user_id: current_user.id)
+    params.require(:tweets_tag).permit(:title, :risk_id,:country_id,:city,:block,:year,:month,:day_id,:time,:detail,:name).merge(user_id: current_user.id)
   end
 end

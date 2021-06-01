@@ -25,6 +25,11 @@
          </div>
         </tbody>
        </table>
+       <li class="tag-list">
+            <%tweet.tags.each do |tag| %>
+              #<%=tag.name%>
+            <%end%>
+       </li>
     </li> 
   <%end%>
 </div>
