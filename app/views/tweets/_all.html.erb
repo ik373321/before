@@ -1,5 +1,40 @@
   <% @tweet.each do |tweet| %>
  <li class='list'>
+
+<div class="card text-white bg-secondary a.text-white mb-3" style="max-width: 200rem;">
+  <div class="card-header">
+    <a> <%= link_to  tweet_path(tweet.id) do %> <%= tweet.title %></a><%end%>
+   </div>
+         <p><a href="tweet_path(tweet.id)" class="text-white"> <%= tweet.title %></a></p>
+  <div class="card-body">
+    <h5 class="card-title"> <tr>
+          <th class="detail-item">危険度</th>
+          <td class="detail-value"><%= tweet.risk.name %></td> 
+         </tr></h5>
+    <p class="card-text">  <tr> 
+          <th class="detail-item">国 ： </th>
+          <td class="detail-value"><%= tweet.country.name %></td>
+         </tr></p>
+    <p class="card-text"> </tr>
+           <th class="detail-item">内容</th>
+           <td class="detail-value"><%= tweet.detail %></td>
+         <tr></p>
+        
+    <p class="card-text">  <tr>
+          <th class="detail-item">投稿者 ： </th>
+          <td class="detail-value"><%= tweet.user.nickname %></td>
+         </tr></p>
+    <p class="card-text">    
+            <%tweet.tags.each do |tag| %>
+              <a> <%= link_to  stag_tweets_path(tag.id) do %>＃ <%= tag.name %></a><%end%>
+            <%end%>
+          
+          </p>
+  </div>
+</div>
+
+
+
         <div class="link-secondary">
           <a> <%= link_to  tweet_path(tweet.id) do %> <%= tweet.title %></a><%end%>
         </div>
@@ -24,8 +59,9 @@
         </tbody>
         <li class="tag-list">
             <%tweet.tags.each do |tag| %>
-              #<%=tag.name%>
+              <a> <%= link_to  stag_tweets_path(tag.id) do %>＃ <%= tag.name %></a><%end%>
             <%end%>
+          
           </li>
        </table>
        　　

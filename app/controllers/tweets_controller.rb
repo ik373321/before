@@ -1,7 +1,11 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!,  except: [:index, :show]
+  before_action :search_tweet, only: [:index, :runsearch]
   def index
    @tweet = Tweet.order('created_at DESC').page(params[:page]).per(25)
+  #  set_tweet_column
+  #  set_tag_column
+  @country = Country.where.not(id: 1)
   end
 
   def new
@@ -103,13 +107,50 @@ class TweetsController < ApplicationController
  end
 
  def search
-   return nil if params[:keyword] == ""
-   tag = Tag.where(['name LIKE ?', "%#{params[:keyword]}%"] )
-   render json:{ keyword: tag }
+    return nil if params[:keyword] == ""
+    tag = Tag.where(['name LIKE ?', "%#{params[:keyword]}%"] )
+    render json:{ keyword: tag }
+  #binding.pry
  end
+
+ def runsearch
+  @results = @p.result#.includes(:tag) 
+ # binding.pry
+ end
+
+ def tag
+   @tag = Tag.all
+ end
+
+
+def stag
+  @tag = Tag.find(params[:format])
+  @tweets = @tag.tweets
+  #binding.pry
+end
+
+
+
+
   private
 
   def tweets_params
     params.require(:tweets_tag).permit(:title, :risk_id,:country_id,:city,:block,:year,:month,:day_id,:time,:detail,:name).merge(user_id: current_user.id)
   end
+
+  def search_tweet
+    @p = Tweet.ransack(params[:q])  
+   #binding.pry
+  end
+
+
+
+  # def set_tweet_column
+  #   @tweet_country_id = Tweet.select("country_id").distinct  # 重複なくnameカラムのデータを取り出す
+  # end
+
+  # def set_tag_column
+  #   @tag_name = Tag.select("name").distinct
+  # end
+
 end
