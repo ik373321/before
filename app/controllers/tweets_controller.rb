@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :authenticate_user!,  except: [:index, :show]
+  before_action :authenticate_user!, only: [:new, :create,:update,:edit,:destroy] #except: [:index, :show]
   before_action :search_tweet, only: [:index, :runsearch]
   def index
    @tweet = Tweet.order('created_at DESC').page(params[:page]).per(25)
@@ -128,6 +128,10 @@ def stag
   @tweets = @tag.tweets
   #binding.pry
 end
+
+
+  
+
 
 
 

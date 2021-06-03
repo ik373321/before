@@ -21,7 +21,8 @@
          <tr></p>
         
     <p class="card-text">  <tr>
-          <th class="detail-item">投稿者 ： </th>
+          <th class="detail-item">投稿者 ： 
+             <a> <%= link_to  user_path(tweet.user.id) do %> <%=tweet.user.nickname %></a><%end%></th>
           <td class="detail-value"><%= tweet.user.nickname %></td>
          </tr></p>
     <p class="card-text">    
