@@ -1,5 +1,6 @@
 <div class="container">
   <h1>アジア</h1>
+  <% if @asia.length !=0 %>
   <% @asia.each do |tweet| %>
    <li class='list'>
         <div class='item-img-content'>
@@ -32,4 +33,10 @@
        </li>
     </li> 
   <%end%>
+  <% else %>
+  該当する投稿はありません
+<% end %>
+<br>
+<%= link_to 'トップページへ戻る', root_path %>
+</div>
 </div>

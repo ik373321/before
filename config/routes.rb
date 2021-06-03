@@ -3,7 +3,7 @@ Rails.application.routes.draw do
  root to:"tweets#index"
  resources :tweets do
   resources :comments, only: :create
-  get :asia,:namerica,:samerica,:africa,:europe,:oceania,:search, on: :collection
+  get :asia,:namerica,:samerica,:africa,:europe,:oceania,:search,:runsearch,:tag,:stag, on: :collection
  end 
  
 end

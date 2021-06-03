@@ -1,6 +1,6 @@
 <div class="container">
  <h1> アフリカ</h1>
-
+<% if @africa.length !=0 %>
   <% @africa.each do |tweet| %>
 
    <li class='list'>
@@ -34,3 +34,9 @@
         </li>
     </li> 
    <%end%>
+   <% else %>
+  該当する投稿はありません
+<% end %>
+<br>
+<%= link_to 'トップページへ戻る', root_path %>
+</div>

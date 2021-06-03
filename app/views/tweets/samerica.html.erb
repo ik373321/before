@@ -1,5 +1,6 @@
 <div class="container">
  <h1>南アメリカ</h1>
+ <% if @samerica.length !=0 %>
    <% @samerica.each do |tweet| %>
    <li class='list'>
         <div class='item-img-content'>
@@ -32,4 +33,10 @@
        </table>
     </li> 
   <%end%>
+  <% else %>
+  該当する投稿はありません
+<% end %>
+<br>
+<%= link_to 'トップページへ戻る', root_path %>
+</div>
 </div>

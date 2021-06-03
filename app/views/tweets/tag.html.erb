@@ -1,0 +1,8 @@
+<div class="container">
+<h1>タグ一覧</h1>
+<% @tag.each do |tag| %>
+<div>
+ <a> <%= link_to  stag_tweets_path(tag.id) do %>＃ <%= tag.name %></a><%end%>
+</div>
+<%end%>
+</div>
