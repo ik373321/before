@@ -5,44 +5,49 @@
 
 <%# 検索結果の個数で条件分岐 %>
 <% if @results.length !=0 %>
+<%= link_to 'トップページへ戻る', root_path %>
   <% @results.each do |result| %>
-    <br>
-    <li>
-     <div class="weight-bold-text">
-       <%= result.country.name %>
-     </div>
-   <div class="link-secondary">
+    <li class='list'>
+<div class="card text-dark bg-light mb-3" style="max-width: 180rem;">
+  <div class="card-header">
+    <%= result.title %>
           <a> <%= link_to  tweet_path (result.id)do %> 詳しくはこちら</a><%end%>
-        </div>
-       
-        <div class="weight-bold-text">
-          <td class="detail-value"><%= result.title %></td> 
-         </tr>
-    <div class="weight-bold-text">
-          <th class="detail-item">危険度</th>
-          <td class="detail-value"><%= result.risk.name %></td> 
-         </tr>
+     </div>
+      <div class="card-body">
+   <h5 class="card-title"> <tr>
+          <th class="detail-item">国 ： </th>
+          <td class="detail-value"> <%= result.country.name %></td> 
+         </tr></h5>
+ <p class="card-text">  <tr> 
+          <th class="detail-item">危険度 ： </th>
+          <td class="detail-value">  <%= result.risk.name %></td>
+         </tr></p>
+
+
+  <p class="card-text">  <tr> 
+          <td class="detail-value">  <%= result.year %></td>
+          <th class="detail-item">年 </th>
+         </tr></p>
+
+
+        
+          <p class="card-text">  <tr> 
+          <th class="detail-item">内容 ： </th>
+          <td class="detail-value">  <%= result.detail %></td>
+         </tr></p>
+          
+            <p class="card-text">  <tr> 
+          <th class="detail-item">時間帯 ： </th>
+          <td class="detail-value">  <%= result.day.name %></td>
+         </tr></p>
+     
+           <p class="card-text">  <tr> 
+          <th class="detail-item">時間 ： </th>
+          <td class="detail-value">  <%= result.time %></td>
+         </tr></p>
           </div>
-        <div class="weight-bold-text">
-          <th class="detail-item">年</th>
-          <td class="detail-value"><%= result.year %></td> 
-         </tr>
-          </div>
-     <div class="weight-bold-text">
-          <th class="detail-item">内容</th>
-          <td class="detail-value"><%= result.detail %></td> 
-         </tr>
-          </div>
-         <div class="weight-bold-text">
-          <th class="detail-item">時間帯</th>
-          <td class="detail-value"><%= result.day.name %></td> 
-         </tr>
-          </div>
-         <div class="weight-bold-text">
-          <th class="detail-item">時間</th>
-          <td class="detail-value"><%= result.time%></td> 
-         </tr>
-          </div>
+         </div>
+          
 
      
      

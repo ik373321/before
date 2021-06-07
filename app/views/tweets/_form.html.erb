@@ -1,0 +1,40 @@
+ <% if @tweets.length !=0 %>
+ <%= link_to 'トップページへ戻る', root_path %>
+<% @tweets.each do |tweet| %>
+ <li class='list'>
+<div class="card text-dark bg-light mb-3" style="max-width: 180rem;">
+  <div class="card-header">
+  <%= tweet.title %>
+             <a> <%= link_to  tweet_path (tweet.id)do %> 詳しくはこちら</a><%end%>  
+             </div>
+             <div class="card-body">
+    <h5 class="card-title"> <tr>
+          <th class="detail-item">国</th>
+          <td class="detail-value"> <%= tweet.country.name %></td> 
+         </tr></h5>
+
+         <p class="card-text">  <tr> 
+          <th class="detail-item">危険度 ： </th>
+          <td class="detail-value">  <%= tweet.risk.name %></td>
+         </tr></p>
+
+           <p class="card-text"> <tr>
+           <th class="detail-item">内容</th>
+           <td class="detail-value"><%= tweet.detail %></td>
+         </tr></p>
+           <p class="card-text"> <tr>
+            <%tweet.tags.each do |tag| %>
+              <a> <%= link_to  stag_tweets_path(tag.id) do %>＃ <%= tag.name %></a><%end%>
+            <%end%>
+         </tr></p>
+</div>
+
+</div>
+ </li>
+        <%end%>
+
+<% else %>
+  該当する投稿はありません
+<% end %>
+<br>
+<%= link_to 'トップページへ戻る', root_path %>

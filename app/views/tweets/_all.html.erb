@@ -1,11 +1,14 @@
+
+<% if @tweet.length !=0 %>
+   <%= link_to 'トップページへ戻る', root_path %>
   <% @tweet.each do |tweet| %>
  <li class='list'>
 
-<div class="card text-white bg-secondary a.text-white mb-3" style="max-width: 200rem;">
+<%# <div class="card text-white bg-secondary a.text-white mb-3" style="max-width: 200rem;"> %>
+<div class="card text-dark bg-light mb-3" style="max-width: 180rem;">
   <div class="card-header">
     <a> <%= link_to  tweet_path(tweet.id) do %> <%= tweet.title %></a><%end%>
    </div>
-         <p><a href="tweet_path(tweet.id)" class="text-white"> <%= tweet.title %></a></p>
   <div class="card-body">
     <h5 class="card-title"> <tr>
           <th class="detail-item">危険度</th>
@@ -23,48 +26,22 @@
     <p class="card-text">  <tr>
           <th class="detail-item">投稿者 ： 
              <a> <%= link_to  user_path(tweet.user.id) do %> <%=tweet.user.nickname %></a><%end%></th>
-          <td class="detail-value"><%= tweet.user.nickname %></td>
+   
          </tr></p>
     <p class="card-text">    
             <%tweet.tags.each do |tag| %>
               <a> <%= link_to  stag_tweets_path(tag.id) do %>＃ <%= tag.name %></a><%end%>
             <%end%>
-          
           </p>
   </div>
 </div>
 
 
-
-        <div class="link-secondary">
-          <a> <%= link_to  tweet_path(tweet.id) do %> <%= tweet.title %></a><%end%>
-        </div>
-     <table class="detail-table">
-         <tbody>
-          <div class='item-info'>
-         <tr>
-          <th class="detail-item">危険度</th>
-          <td class="detail-value"><%= tweet.risk.name %></td> 
-         </tr>
-         <tr> 
-          <th class="detail-item">国</th>
-          <td class="detail-value"><%= tweet.country.name %></td>
-         </tr>
-           <th class="detail-item">内容</div>
-           <td class="detail-value"><%= tweet.detail %></td>
-         <tr>
-          <th class="detail-item">投稿者</div>
-          <td class="detail-value"><%= tweet.user.nickname %></td>
-         </tr>
-         </div>
-        </tbody>
-        <li class="tag-list">
-            <%tweet.tags.each do |tag| %>
-              <a> <%= link_to  stag_tweets_path(tag.id) do %>＃ <%= tag.name %></a><%end%>
-            <%end%>
-          
-          </li>
-       </table>
        　　
   </li>
   <% end %>  
+  <% else %>
+  該当する投稿はありません
+<% end %>
+<br>
+<%= link_to 'トップページへ戻る', root_path %>

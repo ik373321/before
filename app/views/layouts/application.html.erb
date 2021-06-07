@@ -7,6 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link ral="stylesheet" href="style.css">
     
     <title>Before</title>
     <%= csrf_meta_tags %>
@@ -22,7 +23,7 @@
       <% if user_signed_in? %>
       <div class="row flex-nowrap justify-content-between align-items-center">
         　 <div class="col-4 pt-1">
-           <a><%= link_to current_user.nickname,  class: "link-secondary"%> </a> 
+         <%= link_to "マイページ", "/users/#{current_user.id}" %>
         　 </div>
            <div class="col-4 text-center">
               <a><%= link_to '投稿する',  new_tweet_path, class: "btn btn-sm btn-outline-secondary" %></a> 
@@ -63,6 +64,10 @@
    <%= link_to "南アメリカ", samerica_tweets_path%>
    <%= link_to "オセアニア", oceania_tweets_path%>
      </nav>
-    <%= yield %>
+   
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBI4wIgWynv4jemfw_FpI4tNFpQbb74tU&callback=initialize"></script>
+   <script src="map.js"> </script>
+   <%= yield %>
+    
   </body>
 </html>

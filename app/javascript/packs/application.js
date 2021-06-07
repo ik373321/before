@@ -8,6 +8,7 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require("../tag")
+require("../map")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -15,3 +16,9 @@ require("../tag")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+ //defer ="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBI4wIgWynv4jemfw_FpI4tNFpQbb74tU&callback=initialize"
+
+
+
+
