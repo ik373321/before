@@ -1,24 +1,5 @@
 <div class="container">
+
  <h3><%= @nickname %>さんの投稿一覧</h3>
-<% @tweets.each do |tweet| %>
-  <div class="link-secondary">
-                <%= tweet.country.name %>
-              </div>
-             <a> <%= link_to  tweet_path (tweet.id)do %> 詳しくはこちら</a><%end%>  
-        <div class="link-secondary">
-          <%= tweet.title %>
-        </div>
-         <div class="link-secondary">
-         危険度
-          <%= tweet.risk.name %>
-          </div>
-          内容
-          <div class="link-secondary">
-               <%= tweet.detail %>
-           </div>
-      
-        <%end%>
-<div>
-<%= link_to 'トップページへ戻る', root_path %>
-</div>
+   <%= render "tweets/form" %>
 </div>

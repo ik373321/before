@@ -44,12 +44,13 @@ class TweetsController < ApplicationController
   end   
   def destroy
     @tweet = Tweet.find(params[:id])
+    #binding.pry
     @tweet.destroy
     redirect_to root_path
   end
   
   def asia
-    @asia = Tweet.where(country_id:"195").or(Tweet.where(country_id:"4")).or(Tweet.where(country_id:"5")).or(Tweet.where(country_id:"11")).or(Tweet.where(country_id:"15"))
+    @tweet = Tweet.where(country_id:"195").or(Tweet.where(country_id:"4")).or(Tweet.where(country_id:"5")).or(Tweet.where(country_id:"11")).or(Tweet.where(country_id:"15"))
     .or(Tweet.where(country_id:"16")).or(Tweet.where(country_id:"18")).or(Tweet.where(country_id:"19")).or(Tweet.where(country_id:"20")).or(Tweet.where(country_id:"21"))
     .or(Tweet.where(country_id:"24")).or(Tweet.where(country_id:"35")).or(Tweet.where(country_id:"40")).or(Tweet.where(country_id:"41")).or(Tweet.where(country_id:"98"))
     .or(Tweet.where(country_id:"46")).or(Tweet.where(country_id:"115")).or(Tweet.where(country_id:"50")).or(Tweet.where(country_id:"54")).or(Tweet.where(country_id:"56"))
@@ -61,7 +62,7 @@ class TweetsController < ApplicationController
   end
 
  def africa
-  @africa = Tweet.where(country_id:"8").or(Tweet.where(country_id:"12")).or(Tweet.where(country_id:"27")).or(Tweet.where(country_id:"29")).or(Tweet.where(country_id:"37"))
+  @tweet = Tweet.where(country_id:"8").or(Tweet.where(country_id:"12")).or(Tweet.where(country_id:"27")).or(Tweet.where(country_id:"29")).or(Tweet.where(country_id:"37"))
   .or(Tweet.where(country_id:"38")).or(Tweet.where(country_id:"43")).or(Tweet.where(country_id:"44")).or(Tweet.where(country_id:"45")).or(Tweet.where(country_id:"48"))
   .or(Tweet.where(country_id:"49").or(Tweet.where(country_id:"61"))).or(Tweet.where(country_id:"62")).or(Tweet.where(country_id:"64")).or(Tweet.where(country_id:"66"))
   .or(Tweet.where(country_id:"67")).or(Tweet.where(country_id:"71")).or(Tweet.where(country_id:"71")).or(Tweet.where(country_id:"73")).or(Tweet.where(country_id:"74"))
@@ -75,7 +76,7 @@ class TweetsController < ApplicationController
  end
 
  def namerica
-  @namerica =  Tweet.where(country_id:"6").or(Tweet.where(country_id:"32")).or(Tweet.where(country_id:"42")).or(Tweet.where(country_id:"51")).or(Tweet.where(country_id:"55"))
+  @tweet =  Tweet.where(country_id:"6").or(Tweet.where(country_id:"32")).or(Tweet.where(country_id:"42")).or(Tweet.where(country_id:"51")).or(Tweet.where(country_id:"55"))
   .or(Tweet.where(country_id:"59")).or(Tweet.where(country_id:"63")).or(Tweet.where(country_id:"75")).or(Tweet.where(country_id:"92")).or(Tweet.where(country_id:"93"))
   .or(Tweet.where(country_id:"94")).or(Tweet.where(country_id:"111")).or(Tweet.where(country_id:"112")).or(Tweet.where(country_id:"113")).or(Tweet.where(country_id:"121"))
   .or(Tweet.where(country_id:"128")).or(Tweet.where(country_id:"131")).or(Tweet.where(country_id:"133")).or(Tweet.where(country_id:"137")).or(Tweet.where(country_id:"155"))
@@ -83,12 +84,12 @@ class TweetsController < ApplicationController
  end
 
  def samerica
-  @samerica =  Tweet.where(country_id:"9").or(Tweet.where(country_id:"25")).or(Tweet.where(country_id:"26")).or(Tweet.where(country_id:"39")).or(Tweet.where(country_id:"65"))
+  @tweet =  Tweet.where(country_id:"9").or(Tweet.where(country_id:"25")).or(Tweet.where(country_id:"26")).or(Tweet.where(country_id:"39")).or(Tweet.where(country_id:"65"))
   .or(Tweet.where(country_id:"84")).or(Tweet.where(country_id:"106")).or(Tweet.where(country_id:"136")).or(Tweet.where(country_id:"145")).or(Tweet.where(country_id:"153"))
   .or(Tweet.where(country_id:"156")).or(Tweet.where(country_id:"161")).order('created_at DESC').page(params[:page]).per(25)
  end
  def europe
-  @europe = Tweet.where(country_id:"2").or(Tweet.where(country_id:"3")).or(Tweet.where(country_id:"10")).or(Tweet.where(country_id:"14")).or(Tweet.where(country_id:"17"))
+  @tweet = Tweet.where(country_id:"2").or(Tweet.where(country_id:"3")).or(Tweet.where(country_id:"10")).or(Tweet.where(country_id:"14")).or(Tweet.where(country_id:"17"))
   .or(Tweet.where(country_id:"58")).or(Tweet.where(country_id:"23")).or(Tweet.where(country_id:"28")).or(Tweet.where(country_id:"34")).or(Tweet.where(country_id:"36"))
   .or(Tweet.where(country_id:"52")).or(Tweet.where(country_id:"60")).or(Tweet.where(country_id:"60")).or(Tweet.where(country_id:"72")).or(Tweet.where(country_id:"80"))
   .or(Tweet.where(country_id:"81")).or(Tweet.where(country_id:"83")).or(Tweet.where(country_id:"86")).or(Tweet.where(country_id:"87")).or(Tweet.where(country_id:"91"))
@@ -101,7 +102,7 @@ class TweetsController < ApplicationController
 
  end
  def oceania
-  @oceania = Tweet.where(country_id:"33").or(Tweet.where(country_id:"53")).or(Tweet.where(country_id:"57")).or(Tweet.where(country_id:"69")).or(Tweet.where(country_id:"120"))
+  @tweet = Tweet.where(country_id:"33").or(Tweet.where(country_id:"53")).or(Tweet.where(country_id:"57")).or(Tweet.where(country_id:"69")).or(Tweet.where(country_id:"120"))
   .or(Tweet.where(country_id:"124")).or(Tweet.where(country_id:"132")).or(Tweet.where(country_id:"134")).or(Tweet.where(country_id:"135")).or(Tweet.where(country_id:"141"))
   .or(Tweet.where(country_id:"164")).or(Tweet.where(country_id:"170")).order('created_at DESC')  .page(params[:page]).per(25)
  end

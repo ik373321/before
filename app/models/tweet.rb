@@ -4,9 +4,9 @@ class Tweet < ApplicationRecord
   belongs_to :day
   belongs_to :country
   belongs_to :user
-  has_many   :comments
-  has_many :tweet_tag_relations
-  has_many :tags, through: :tweet_tag_relations
+  has_many   :comments ,dependent: :destroy
+  has_many :tweet_tag_relations, dependent: :destroy
+  has_many :tags, through: :tweet_tag_relations, dependent: :destroy
 
   validates :title, :block, :year, :month,:detail, presence: true
   validates :time, length: { maximum: 25 }

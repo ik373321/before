@@ -1,69 +1,88 @@
 <div class="container">
 <div class="item-show">
- <div class="item-box">
-    <h2 class="name">
-      <%= @tweet.title %>
-    </h2>
-    <div class="item-price-box">
-      <div class="item-price">
+ <div class="card text-dark bg-light mb-3" style="max-width: 6000rem;">
+  <div class="card-header">
+      <h2><%= @tweet.title %></h2>
+    </div>
+
+    <div class="card-body">
+       <h5 class="card-title"> <tr>
        <span>危険度</span>
         <%= @tweet.risk.name %>
-      </div>
-      <div class="item-postage">
+       </tr></h5>
+       <h5 class="card-title"> <tr>
         <span>国名</span>
         <%= @tweet.country.name %>
-      </div>
-       <div class="item-postage">
-        <span>地域</span>
+   <tr></p>
+        <h5 class="card-title"> <tr>
+        <span>地域 ： </span>
         <%= @tweet.city %>
-      </div>
-       <div class="item-postage">
-        <span>具体的な場所</span>
+   <tr></p>
+    <h5 class="card-title"> <tr>
+        <span>具体的な場所 ： </span>
         <%= @tweet.block %>
-      </div>
-       <div class="item-postage">
-        <span>年</span>
+    <tr></p>
+        <h5 class="card-title"> <tr>
         <%= @tweet.year %>
-      </div>
-       <div class="item-postage">
-        <span>月</span>
+        <span>年</span>
+<tr></p>
+        <h5 class="card-title"> <tr>
         <%= @tweet.month %>
-      </div>
-      <div class="item-postage">
+        <span>月</span>
+ <tr></p>
+      <h5 class="card-title"> <tr>
         <span>時間帯</span>
         <%= @tweet.day.name %>
-      </div>
-      <div class="item-postage">
+      <tr></p>
+       <h5 class="card-title"> <tr>
         <span>時間</span>
         <%= @tweet.time %>
-      </div>
-      <div class="item-postage">
-        <span>内容</span>
+      <tr></p>
+      <h5 class="card-title"> <tr>
+        <span>内容 : </span>
         <%= @tweet.detail %>
-       </div>
+     <tr></p>
      </div>
      <%if user_signed_in?%>
         <%if current_user.id == @tweet.user_id %>
-          <%= link_to "投稿の編集", edit_tweet_path(@tweet.id), method: :get, class: "btn btn-outline-primary" %>
+          <%= link_to  "投稿の編集", edit_tweet_path(@tweet.id), method: :get, class: "btn btn-outline-primary" %>
         
           <%= link_to "削除",  tweet_path(@tweet.id), method: :delete, class:"btn btn-outline-danger" %>
         <%end%>
-    
+        </div>
+          <div class="card text-dark bg-light mb-3" style="max-width: 6000rem;">
+  <div class="card-header">
+   <h4>コメントフォーム</h4>
+  </div>
+        
          <%= form_with(model: [@tweet, @comment], local: true) do |form| %>
-        <%= form.text_area :text, placeholder: "コメントする", rows: "3" %>
-        <%= form.submit "SEND" %>
+         <h5 class="card-title"> <tr>
+        <%= form.text_area :text,  class:"form-control",placeholder: "コメントする", rows: "3" %>
+        <%= form.submit "SEND" , class:"btn btn-outline-danger"%>
+         <tr></p>
          <%end%>
       <%end%>
-
-     <div class="comments">
+    </div>
+    <div class="card text-dark bg-light mb-3" style="max-width: 6000rem;">
+  <div class="card-header">
       <h4>＜コメント一覧＞</h4>
+        <h5 class="card-title"> <tr>
+      <% if @comments.length !=0 %>
+      </div>
       <% @comments.each do |comment| %>
         <p>
           <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
           <%= comment.text %>
         </p>
       <% end %>
+       <% else %>
+  <a>該当するコメントはありません<>
+<% end %>
+ <tr></p>
     </div>
+ <%= render "tweets/map" %>
+      </div>
+  
     
    </div>
  </div>
