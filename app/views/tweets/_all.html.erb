@@ -1,6 +1,8 @@
 
 <% if @tweet.length !=0 %>
+<div class="root">
    <%= link_to 'トップページへ戻る', root_path %>
+</div>
   <% @tweet.each do |tweet| %>
  <li class='list'>
 
@@ -36,7 +38,7 @@
   </div>
 </div>
 
-
+<%= paginate @tweet %>
        　　
   </li>
   <% end %>  

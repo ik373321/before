@@ -5,6 +5,7 @@
 <h3>
   国検索
 </h3>
+
 <%= search_form_for @p, url:runsearch_tweets_path do |f| %>  
 
   <%= f.collection_select :country_id_eq, @country, :id, :name ,include_blank: '指定なし' %>
@@ -15,9 +16,12 @@
 <%= link_to 'タグ一覧', tag_tweets_path %>
  <% if @tweet.length > 0 %>
    <h1>全世界</h1>
+  <%= image_tag "top.jpg", class:"left-image"%>
+
  <%= render "tweets/all" %>
   <div>
-   <%= paginate @tweet %>
+   <%#= paginate @tweet %>
   </div>
   <%end%>
+ 
 </div>

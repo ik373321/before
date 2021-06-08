@@ -115,12 +115,12 @@ class TweetsController < ApplicationController
  end
 
  def runsearch
-  @results = @p.result#.includes(:tag) 
+  @results = @p.result.order('created_at DESC')#.includes(:tag) 
  # binding.pry
  end
 
  def tag
-   @tag = Tag.all
+   @tag = Tag.all.order('created_at DESC')
  end
 
 
