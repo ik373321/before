@@ -2,15 +2,13 @@
   <div class="items-sell-contents">
     <header class="items-sell-header">
     </header>
-
-  <div class="items-sell-main">
+ <div class="items-sell-main">
     <h2 class="items-sell-title">あなたが体験した情報を入力</h2>
 
-      <%= form_with model:@tweet,  url: tweets_path, html: { method: :post },local: true do |f| %>
+<%= form_with model:@tweet,  url: tweets_path, html: { method: :post },local: true do |f| %>
 
         <%= render 'shared/error_messages', model: f.object %>
-
-          <div class="mb-3">
+<div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">タイトル　必須</label>
             <%= f.text_area :title,class:"form-control", id:"exampleFormControlTextarea1", rows:"3", placeholder:"例）笑顔で騙されかけました", maxlength:"40" %>
           </div>
@@ -23,7 +21,7 @@
    </div>
      
      
-      <div class="weight-bold-text">体験した詳細</div>
+      
         <div class="form">
           <div class="weight-bold-text">
             国
@@ -75,15 +73,20 @@
          <div class="tag-field", id='tag-field'>
             <%= f.text_field :name, class:"input-tag" %>
        </div>
-
-       <h4>地図で確認してできるだけ鮮明に記述してください</h4>
+        <div class="map_text">
+        <h4>地図で確認してできるだけ鮮明に記述してください</h4>
+        </div>
        <%= render "tweets/map" %>
 
       <div class="sell-btn-contents">
-         <%= f.submit "投稿する" ,class:"sell-btn" %>
-         <%=link_to 'もどる', root_path, class:"back-btn" %>
+         <%= f.submit "投稿する" ,class:"btn  btn-outline-secondary" %>
+         <%=link_to 'もどる', root_path, class:"btn btn-outline-primary" %>
       </div>
        <% end %>
-   </div>
+   
+    </div>
+
+
+      
   </div>
 </div>
