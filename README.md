@@ -32,7 +32,6 @@ https://before-35526.herokuapp.com/
 - API:Google map API(Maps JavaScript API/Service Usage API)
 - その他環境構築: Docker
 
-
 # 課題や今後実装したい機能
 投稿時に危険な場所をmapにピン留めし、投稿一覧で危険な場所がピン留めされているのですぐにわかる機能
 # DB設計
