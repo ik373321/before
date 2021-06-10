@@ -103,3 +103,4 @@ https://before-35526.herokuapp.com/
 - belongs_to :tweet
 
 
+[![Image from Gyazo](https://i.gyazo.com/4659a3a9045992c16cb0cca90aef7842.gif)](https://gyazo.com/4659a3a9045992c16cb0cca90aef7842)
