@@ -1,5 +1,4 @@
-# アプリ名
-before
+# before
 # 概要
 旅行に行く前に危険なところがわかり回避できる。
 旅行中危険だったところを共有することができる。
@@ -19,11 +18,16 @@ https://before-35526.herokuapp.com/
 
 
 # 使用技術（開発環境）
-- Docker
-- Heroku
-### Google map API
-#### Maps JavaScript API
-#### Service Usage API
+- 言語： HTML/CSS/JavaScript/Ruby
+- フレームワーク: Ruby on Rails
+- データベース: MySQL/MariaDB
+- インフラ: AWS（EC2）
+- テストツール: RSpec
+- コードレビュー： Rubocop
+- デプロイ:Capistrano
+- API:Google map API(Maps JavaScript API/Service Usage API)
+- その他環境構築: Docker
+
 
 # 課題や今後実装したい機能
 投稿時に危険な場所をmapにピン留めし、投稿一覧で危険な場所がピン留めされているのですぐにわかる機能
