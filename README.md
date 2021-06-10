@@ -1,5 +1,5 @@
 # before
-!(https://gyazo.com/bf7703a6fc2163d20ebc8254b8585051)
+[![Image from Gyazo](https://i.gyazo.com/bf7703a6fc2163d20ebc8254b8585051.jpg)](https://gyazo.com/bf7703a6fc2163d20ebc8254b8585051)
 # 概要
 旅行に行く前に危険なところがわかり回避できる。
 旅行中危険だったところを共有することができる。
