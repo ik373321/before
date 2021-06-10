@@ -19,8 +19,8 @@ https://before-35526.herokuapp.com/
 
 
 # 使用技術（開発環境）
-・Docker
-・Heroku
+- Docker
+- Heroku
 ### Google map API
 #### Maps JavaScript API
 #### Service Usage API
