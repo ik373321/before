@@ -2,10 +2,10 @@
 [![Image from Gyazo](https://i.gyazo.com/e72f3940bb52b68b94e87c11a721bbf7.gif)](https://gyazo.com/e72f3940bb52b68b94e87c11a721bbf7)
 
 # 概要
-旅行に行く前に危険なところがわかり回避できる。
-旅行中危険だったところを共有することができる。
-国やタグごとに検索することができる。
-投稿にコメントすることができる。
+- このアプリは旅行前に使用します。
+- 旅行先でのリスクを事前に把握することができます。
+- ユーザは主に投稿・閲覧・コメントをすることができます。
+- 国・タグの検索や地域ごとで投稿を表示しているのでユーザーはスピード感を持って閲覧できます。
 # 本番環境
 - http://52.68.59.8/
 - ユーザー名：admin
@@ -16,8 +16,12 @@
 <br>
 事前にリスクを把握でき旅行を楽しむことができるようなアプリを制作したいと考えました。
 # DEMO
-
-
+### 投稿画面
+[![Image from Gyazo](https://i.gyazo.com/9ab45ee0de5756c6c999c8e53d1e88a4.gif)](https://gyazo.com/9ab45ee0de5756c6c999c8e53d1e88a4)
+### コメント画面
+[![Image from Gyazo](https://i.gyazo.com/38b71fadb29d5b63c38eea63af2f6b49.gif)](https://gyazo.com/38b71fadb29d5b63c38eea63af2f6b49)
+### 地域ごとに表示
+[![Image from Gyazo](https://i.gyazo.com/968c6e543eb8ab31b0dc5f6ad888c867.gif)](https://gyazo.com/968c6e543eb8ab31b0dc5f6ad888c867)
 # 工夫したポイント
 ### アクティブハッシュで国名を取得
 - アクティブハッシュを使用し国を選択できるようにしました。
