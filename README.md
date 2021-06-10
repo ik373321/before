@@ -13,7 +13,9 @@ https://before-35526.herokuapp.com/
 # 制作背景
 私は旅行が好きで何カ国か海外旅行に行ったことがあるのですが、そこで何度か嫌な体験や怖い体験しました。このアプリを通して事前にリスクを把握でき楽しむことができるように制作しました。
 # DEMO
+
 [![Image from Gyazo](https://i.gyazo.com/4659a3a9045992c16cb0cca90aef7842.gif)](https://gyazo.com/4659a3a9045992c16cb0cca90aef7842)
+
 # 工夫したポイント
 アクティブハッシュを使用し国を選択しているのでしっかりとデータが取れる。
 危険度を可視化できるようにしたのでわかりやすい
@@ -109,3 +111,4 @@ https://before-35526.herokuapp.com/
 - belongs_to :tweet
 
 
+[![Image from Gyazo](https://i.gyazo.com/de6f7416dc216af3eb0043d9d8122720.gif)](https://gyazo.com/de6f7416dc216af3eb0043d9d8122720)
