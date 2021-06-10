@@ -1,6 +1,6 @@
 # before
 
-[!(https://i.gyazo.com/4659a3a9045992c16cb0cca90aef7842.gif)](https://gyazo.com/4659a3a9045992c16cb0cca90aef7842)
+[![Image from Gyazo](https://i.gyazo.com/4659a3a9045992c16cb0cca90aef7842.gif)](https://gyazo.com/4659a3a9045992c16cb0cca90aef7842)
 
 # 概要
 旅行に行く前に危険なところがわかり回避できる。
