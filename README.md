@@ -70,6 +70,8 @@
 # 課題や今後実装したい機能
 投稿時に危険な場所をmapにピン留めし、投稿一覧で危険な場所がピン留めされているのですぐにわかる機能
 
+# ER図
+[![Image from Gyazo](https://i.gyazo.com/34621f9210948f2d26d9f81b00aededa.png)](https://gyazo.com/34621f9210948f2d26d9f81b00aededa)
 
 # DB設計
 ## users　テーブル
